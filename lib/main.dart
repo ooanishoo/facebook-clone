@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'dart:developer';
 import 'package:facebook/pages/home.dart';
 import 'package:facebook/pages/friends.dart';
 import 'package:facebook/pages/marketplace.dart';
 import 'package:facebook/pages/notifications.dart';
 import 'package:facebook/pages/menu.dart';
+import 'package:flutter/rendering.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  //debugPaintSizeEnabled=true;
+  runApp(MyApp());
+
+}
 
 class MyApp extends StatelessWidget {
   @override
