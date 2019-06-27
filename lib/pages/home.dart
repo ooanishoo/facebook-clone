@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:facebook/models/global.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -93,11 +94,11 @@ Widget _getStoryContainer() {
           margin: EdgeInsets.only(right: 10),
           width: 2,
         ),
-        _getYourStory(userStoryCoverImage),
-        // Row(
-        //   children: _getStories(),
-
-        // )
+         _getYourStory(),
+        Row(
+          children: _getStories(),
+          mainAxisSize: MainAxisSize.max,
+        )
       ],
       scrollDirection: Axis.horizontal,
     ),
@@ -107,7 +108,7 @@ Widget _getStoryContainer() {
   );
 }
 
-Widget _getYourStory(userStoryCoverImage) {
+Widget _getStory() {
   return Container(
     child: ClipRRect(
       child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
@@ -115,6 +116,22 @@ Widget _getYourStory(userStoryCoverImage) {
     ),
     margin: EdgeInsets.only(right: 10),
     width: 120,
+    height: 220,
+    decoration: BoxDecoration(color: Colors.white),
+    padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+  );
+}
+Widget _getYourStory() {
+  return Container(
+    child: ClipRRect(
+      child: Image.network(myStoryImage, fit: BoxFit.fill),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+    ),
+    margin: EdgeInsets.only(right: 10),
+    height: 220,
+    width: 120,
+    decoration: BoxDecoration(color: Colors.white),
+    padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
   );
 }
 
@@ -126,7 +143,7 @@ List<Widget> _getStories() {
   return stories;
 }
 
-Widget _getStory() {
+Widget _getStorysssssss() {
   return Container(
     child: ListView(
       children: <Widget>[
@@ -137,7 +154,7 @@ Widget _getStory() {
           margin: EdgeInsets.only(right: 10),
           width: 2,
         ),
-        _getYourStory(userStoryCoverImage),
+        //_getYourStory(),
         Container(
           child: ClipRRect(
             child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
