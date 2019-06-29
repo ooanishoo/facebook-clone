@@ -1,6 +1,5 @@
 import 'package:facebook/pages/home.dart';
 import 'package:flutter/material.dart';
-import 'models/global.dart';
 
 void main() => runApp(MyApp());
 
