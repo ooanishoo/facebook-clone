@@ -33,31 +33,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.white,
             floating:true,
             snap: true,
-            actions: <Widget>[
-              FloatingActionButton(
-                backgroundColor: Color(0xffEFF5F5),
-                child: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ),
-                onPressed: () {},
-                elevation: 0.0,
-                highlightElevation: 0.0,
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 5),
-              ),
-              FloatingActionButton(
-                backgroundColor: Color(0xffEFF5F5),
-                child: Icon(
-                  Icons.chat,
-                  color: Colors.black,
-                ),
-                onPressed: () {},
-                elevation: 0.0,
-                highlightElevation: 0.0,
-              ),
-            ],
+            actions: _getAppBarActions(),
           ),
           SliverList(
             delegate: new SliverChildListDelegate([
@@ -70,6 +46,34 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+List<Widget> _getAppBarActions(){
+  return [
+    FloatingActionButton(
+      backgroundColor: Color(0xffEFF5F5),
+      child: Icon(
+        Icons.search,
+        color: Colors.black,
+      ),
+      onPressed: () {},
+      elevation: 0.0,
+      highlightElevation: 0.0,
+    ),
+    Padding(
+      padding: EdgeInsets.only(right: 5),
+    ),
+    FloatingActionButton(
+      backgroundColor: Color(0xffEFF5F5),
+      child: Icon(
+        Icons.chat,
+        color: Colors.black,
+      ),
+      onPressed: () {},
+      elevation: 0.0,
+      highlightElevation: 0.0,
+    ),
+  ];
 }
 
 Widget _getSeparator() {
