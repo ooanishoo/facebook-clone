@@ -15,52 +15,60 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'facebook',
-            style: TextStyle(
-                fontWeight: FontWeight.w600, fontSize: 26, color: Colors.blue),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(backgroundColor: Colors.white, elevation: 0),
+      ),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            title: Text(
+              'facebook',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 26,
+                color: Colors.blue
+              ),
+            ),
+            backgroundColor: Colors.white,
+            floating:true,
+            snap: true,
+            actions: <Widget>[
+              FloatingActionButton(
+                backgroundColor: Color(0xffEFF5F5),
+                child: Icon(
+                  Icons.search,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                elevation: 0.0,
+                highlightElevation: 0.0,
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 5),
+              ),
+              FloatingActionButton(
+                backgroundColor: Color(0xffEFF5F5),
+                child: Icon(
+                  Icons.chat,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+                elevation: 0.0,
+                highlightElevation: 0.0,
+              ),
+            ],
           ),
-          actions: <Widget>[
-            FloatingActionButton(
-              backgroundColor: Color(0xffEFF5F5),
-              child: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              onPressed: () {},
-              elevation: 0.0,
-              highlightElevation: 0.0,
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 5),
-            ),
-            FloatingActionButton(
-              backgroundColor: Color(0xffEFF5F5),
-              child: Icon(
-                Icons.chat,
-                color: Colors.black,
-              ),
-              onPressed: () {},
-              elevation: 0.0,
-              highlightElevation: 0.0,
-            ),
-          ],
-          backgroundColor: Colors.white,
-          centerTitle: false,
-          elevation: 1,
-        ),
-        body: Container(
-          child: ListView(
-            children: <Widget>[
+          SliverList(
+            delegate: new SliverChildListDelegate([
               _addPost(),
               _getSeparator(),
               _getStoryContainer(),
               Column(children: _getPosts())
-            ],
-          ),
-          decoration: BoxDecoration(color: Color(0xffCCCFD5)),
-        ));
+          ]))
+        ],
+      ),
+    );
   }
 }
 
@@ -72,9 +80,8 @@ Widget _getSeparator() {
 }
 
 Widget _getStoryContainer() {
-
   List<int> stories = [];
-  stories.length =10;
+  stories.length = 10;
   //for(var i=0;i<20;i++) stories.add(0);
 
 //  return Container(
@@ -94,7 +101,7 @@ Widget _getStoryContainer() {
           margin: EdgeInsets.only(right: 10),
           width: 2,
         ),
-         _getYourStory(),
+        _getYourStory(),
         Row(
           children: _getStories(),
           mainAxisSize: MainAxisSize.max,
@@ -121,6 +128,7 @@ Widget _getStory() {
     padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
   );
 }
+
 Widget _getYourStory() {
   return Container(
     child: ClipRRect(

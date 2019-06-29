@@ -61,7 +61,19 @@ class _FacebookState extends State<Facebook> {
                 icon: Icon(Icons.business)
               ),
               Tab(
-                icon: Icon(Icons.notifications_none)
+                icon: Stack(children: <Widget>[
+                  Icon(Icons.notifications_none),
+                  Positioned(
+                    child: Icon(
+                      Icons.brightness_1,
+                      color: Colors.red,
+                      size: 12.0,
+                    ),
+                    top: 0.0,
+                    right: 0.0,
+                  )
+
+                ],)
               ),
               Tab(
                 icon: Icon(Icons.menu)
