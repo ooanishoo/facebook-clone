@@ -123,9 +123,32 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getStory() {
     return Container(
-      child: ClipRRect(
-        child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+
+      child: Stack(
+        children: <Widget>[
+          ClipRRect(
+            child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          Positioned(
+            child: CircleAvatar(
+              backgroundImage: new NetworkImage(userProfileImage),
+            ),
+            height:40,
+            width: 40,
+            left: 10,
+            top: 5
+          ),
+          Positioned(
+            child: Text(
+              'Hester \nVentura',
+              style:TextStyle(color: Colors.white)
+            ),
+            top:140,
+            left: 10
+          )
+        ],
+        fit: StackFit.expand,
       ),
       margin: EdgeInsets.only(right: 10),
       width: 120,
@@ -137,9 +160,34 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getYourStory() {
     return Container(
-      child: ClipRRect(
-        child: Image.network(myStoryImage, fit: BoxFit.fill),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+      child: Stack(
+        children: <Widget>[
+          ClipRRect(
+            child: Image.network(myStoryImage, fit: BoxFit.fill),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          Positioned(
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+              child: Icon(Icons.add, color:Colors.blue,size: 30,),
+              onPressed: () {}
+            ),
+            left: 10,
+            top: 5,
+            height:40,
+            width:40
+          ),
+          Positioned(
+            child: Text(
+              'Add to Story',
+              style:TextStyle(color: Colors.white)
+            ),
+            top:150,
+            left: 10
+          )
+
+        ],
+        fit: StackFit.expand,
       ),
       margin: EdgeInsets.only(right: 10),
       height: 220,
