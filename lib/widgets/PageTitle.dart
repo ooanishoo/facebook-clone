@@ -9,11 +9,7 @@ class PageTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w600,
-        fontSize: 26,
-      ),
+      style: Theme.of(context).textTheme.title,
     );
   }
 }

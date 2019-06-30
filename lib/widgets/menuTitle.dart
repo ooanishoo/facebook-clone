@@ -10,9 +10,7 @@ class MenuTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style:TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w500,
-    ));
+      style: Theme.of(context).textTheme.subhead
+    );
   }
 }
