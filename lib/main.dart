@@ -64,101 +64,104 @@ class _FacebookState extends State<Facebook> {
             tabs: <Widget>[
               Tab(icon: Icon(Icons.home),),
               Tab(icon: Icon(Icons.people_outline)),
-             // Tab(icon: Icon(Icons.people_outline)),
-              Tab(child: Stack(
-                children: <Widget>[
-                  new IconButton(icon: Icon(Icons.business),  onPressed: (){
-                    setState((){
-                      counter = 0;
-                    });
-                  } ),
-                  counter !=0 ?
-                  Positioned(
-                    right: 11,
-                    top: 11,
-                    child: new Container(
-                      padding: EdgeInsets.all(2),
-                      decoration: new BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      constraints: BoxConstraints(
-                        minWidth: 14,
-                        minHeight: 14,
-                      ),
-                      child: Text(
-                        '20',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 8,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ) : new Container()
-                ]),),
-               Stack(
-                children: <Widget>[
-                  new IconButton(icon: Icon(Icons.notifications),onPressed: changeCounter),
-                  Positioned(
-                    right: 11,
-                    top: 11,
-                    child: new Container(
-                      padding: EdgeInsets.all(2),
-                      decoration: new BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      constraints: BoxConstraints(
-                        minWidth: 14,
-                        minHeight: 14,
-                      ),
-                      child: Text(
-                        '$counter',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 8,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ]),
-              // Tab(
-              //   icon: Stack(
-              //     children: <Widget>[
-
-              //       IconButton(icon: Icon(Icons.notifications), onPressed: () {
-              //         setState(() {
-              //           counter = 0;
-              //         });
-              //       }),
-              //       Icon(Icons.notifications_none),
-              //       Positioned(
-              //         child: Container(
-              //           child: Text(
-              //             '27',
-              //             style: TextStyle(
-              //               color: Colors.white,
-              //               fontSize: 12,
-              //             ),
-              //             textAlign: TextAlign.center,
-              //           ),
-              //           decoration: BoxDecoration(
-              //             color: Colors.red,
-              //             shape: BoxShape.circle,
-              //           ),
-              //           height: 15,
-              //           width: 15,
-              //           padding: EdgeInsets.all(2),
-              //         ),
-              //         top: 0.0,
-              //         right: 0.0,
-              //       )
-              //     ],
-              //   ),
-              // ),
+              Tab(icon: Icon(Icons.business_center)),
+              Tab(icon: Icon(Icons.notifications)),
               Tab(icon: Icon(Icons.menu)),
+             // Tab(icon: Icon(Icons.people_outline)),
+              // Tab(child: Stack(
+              //   children: <Widget>[
+              //     new IconButton(icon: Icon(Icons.business_center),  onPressed: (){
+              //       setState((){
+              //         counter = 0;
+              //       });
+              //     } ),
+              //     counter !=0 ?
+              //     Positioned(
+              //       right: 11,
+              //       top: 11,
+              //       child: new Container(
+              //         padding: EdgeInsets.all(2),
+              //         decoration: new BoxDecoration(
+              //           color: Colors.red,
+              //           borderRadius: BorderRadius.circular(6),
+              //         ),
+              //         constraints: BoxConstraints(
+              //           minWidth: 14,
+              //           minHeight: 14,
+              //         ),
+              //         child: Text(
+              //           '20',
+              //           style: TextStyle(
+              //             color: Colors.white,
+              //             fontSize: 8,
+              //           ),
+              //           textAlign: TextAlign.center,
+              //         ),
+              //       ),
+              //     ) : new Container()
+              //   ]),),
+              //  Stack(
+              //   children: <Widget>[
+              //     new IconButton(icon: Icon(Icons.notifications),onPressed: changeCounter),
+              //     Positioned(
+              //       right: 11,
+              //       top: 11,
+              //       child: new Container(
+              //         padding: EdgeInsets.all(2),
+              //         decoration: new BoxDecoration(
+              //           color: Colors.red,
+              //           borderRadius: BorderRadius.circular(6),
+              //         ),
+              //         constraints: BoxConstraints(
+              //           minWidth: 14,
+              //           minHeight: 14,
+              //         ),
+              //         child: Text(
+              //           '$counter',
+              //           style: TextStyle(
+              //             color: Colors.white,
+              //             fontSize: 8,
+              //           ),
+              //           textAlign: TextAlign.center,
+              //         ),
+              //       ),
+              //     ),
+              //   ]),
+              // // Tab(
+              // //   icon: Stack(
+              // //     children: <Widget>[
+
+              // //       IconButton(icon: Icon(Icons.notifications), onPressed: () {
+              // //         setState(() {
+              // //           counter = 0;
+              // //         });
+              // //       }),
+              // //       Icon(Icons.notifications_none),
+              // //       Positioned(
+              // //         child: Container(
+              // //           child: Text(
+              // //             '27',
+              // //             style: TextStyle(
+              // //               color: Colors.white,
+              // //               fontSize: 12,
+              // //             ),
+              // //             textAlign: TextAlign.center,
+              // //           ),
+              // //           decoration: BoxDecoration(
+              // //             color: Colors.red,
+              // //             shape: BoxShape.circle,
+              // //           ),
+              // //           height: 15,
+              // //           width: 15,
+              // //           padding: EdgeInsets.all(2),
+              // //         ),
+              // //         top: 0.0,
+              // //         right: 0.0,
+              // //       )
+              // //     ],
+              // //   ),
+              // // ),
+              // Tab(icon: Icon(Icons.menu)),
             ],
             unselectedLabelColor: Colors.grey,
             labelColor: Colors.blue,
