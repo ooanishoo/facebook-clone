@@ -12,7 +12,9 @@ Object MyTheme() {
       subhead: TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.w500,
-      )
-    )
+      ),
+    ),
+    fontFamily: 'Helvetica Neue',
+    dividerColor: Color(0xffCCCFD5),
   );
 }
