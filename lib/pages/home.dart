@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 26,
-                  color: Color(0xff3b5998),
+                  color: Color(0xff1777F0),
               ),
             ),
             backgroundColor: Colors.white,
