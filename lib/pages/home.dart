@@ -12,13 +12,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int likes = 136;
   bool isLiked = false;
   void reactToPost() {
     setState(() {
       if (isLiked) {
         isLiked = false;
+        likes--;
       } else {
         isLiked = true;
+        likes++;
       }
     });
     print("Liked Post ? : $isLiked");
@@ -374,7 +377,7 @@ class _HomePageState extends State<HomePage> {
                     width: 30,
                     color: Colors.white,
                   ),
-                  Text('112', style: TextStyle(color: Colors.grey))
+                  Text(likes.toString(), style: TextStyle(color: Colors.grey))
                 ],
               ),
               height: 30,
