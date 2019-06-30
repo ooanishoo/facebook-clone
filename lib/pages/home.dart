@@ -47,9 +47,10 @@ class _HomePageState extends State<HomePage> {
             actions: _getAppBarActions(),
           ),
           SliverList(
-              delegate: new SliverChildListDelegate([
+            delegate: new SliverChildListDelegate([
+            _getSeparator(5),
             _addPost(),
-            _getSeparator(),
+            _getSeparator(10),
             _getStoryContainer(),
             Column(children: _getPosts())
           ]))
@@ -86,10 +87,10 @@ class _HomePageState extends State<HomePage> {
     ];
   }
 
-  Widget _getSeparator() {
+  Widget _getSeparator(double height) {
     return Container(
       decoration: BoxDecoration(color: Color(0xffCCCFD5)),
-      constraints: BoxConstraints(maxHeight: 10),
+      constraints: BoxConstraints(maxHeight: height),
     );
   }
 
@@ -144,7 +145,7 @@ class _HomePageState extends State<HomePage> {
               'Hester \nVentura',
               style:TextStyle(color: Colors.white)
             ),
-            top:140,
+            top:130,
             left: 10
           )
         ],
@@ -438,7 +439,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Column(
         children: <Widget>[
-          _getSeparator(),
+          _getSeparator(10),
           _postHeader(),
           _postBody(),
           postLikesAndComments(),
