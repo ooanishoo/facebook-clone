@@ -1,3 +1,4 @@
+import 'package:facebook/themes/Theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'facebook',
       home: Facebook(),
+      theme: MyTheme(),
     );
   }
 }
