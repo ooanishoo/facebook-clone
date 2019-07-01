@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
           ),
           _getYourStory(),
           Row(
-            children: _getStories(),
+            children: _getStoryThumbnails(),
             mainAxisSize: MainAxisSize.max,
           )
         ],
@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _getStory() {
+  Widget _getStoryThumbnail() {
     return Container(
 
       child: Stack(
@@ -205,10 +205,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  List<Widget> _getStories() {
+  List<Widget> _getStoryThumbnails() {
     List<Widget> stories = [];
     for (var i = 0; i < 8; i++) {
-      stories.add(_getStory());
+      stories.add(_getStoryThumbnail());
     }
     return stories;
   }
