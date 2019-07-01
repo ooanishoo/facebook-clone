@@ -1,9 +1,11 @@
+import 'package:facebook/widgets/userAvatar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:facebook/models/global.dart';
 import 'package:flutter/widgets.dart';
+import 'package:facebook/themes/Theme.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -14,6 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int likes = 136;
   bool isLiked = false;
+  bool hasStory = true;
   void reactToPost() {
     setState(() {
       if (isLiked) {
@@ -93,7 +96,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getSeparator(double height) {
     return Container(
-      decoration: BoxDecoration(color: Color(0xffCCCFD5)),
+      decoration: BoxDecoration(color: Theme.of(context).dividerColor),
       constraints: BoxConstraints(maxHeight: height),
     );
   }
@@ -135,12 +138,12 @@ class _HomePageState extends State<HomePage> {
             child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
+          //_friendAvatar(),
           Positioned(
-            child: CircleAvatar(
-              backgroundImage: new NetworkImage(userProfileImage),
-            ),
-            height:40,
-            width: 40,
+            //child: _friendAvatar(),
+            child: UserAvatar(hasStory:hasStory),
+            // height:40,
+            // width: 40,
             left: 10,
             top: 5
           ),
@@ -279,10 +282,7 @@ class _HomePageState extends State<HomePage> {
           Row(
             children: <Widget>[
               Container(
-                child: CircleAvatar(
-                  backgroundImage: new NetworkImage(userProfileImage),
-                  backgroundColor: Colors.grey,
-                ),
+                child: UserAvatar(hasStory:hasStory),
                 padding: EdgeInsets.only(right: 10),
               ),
               Column(
