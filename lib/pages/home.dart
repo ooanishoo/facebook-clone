@@ -43,9 +43,9 @@ class _HomePageState extends State<HomePage> {
             title: Text(
               'facebook',
               style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 26,
-                  color: Color(0xff1777F0),
+                fontWeight: FontWeight.w600,
+                fontSize: 26,
+                color: Color(0xff1777F0),
               ),
             ),
             backgroundColor: Colors.white,
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             actions: _getAppBarActions(),
           ),
           SliverList(
-            delegate: new SliverChildListDelegate([
+              delegate: new SliverChildListDelegate([
             _getSeparator(5),
             _addPost(),
             _getSeparator(10),
@@ -68,28 +68,37 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> _getAppBarActions() {
     return [
-      FloatingActionButton(
-        backgroundColor: Color(0xffEFF5F5),
-        child: Icon(
-          Icons.search,
+      Container(
+        child: IconButton(
+          icon: Icon(Icons.search),
           color: Colors.black,
+          disabledColor: Colors.black,
+          splashColor: Theme.of(context).accentColor,
+          onPressed: () {},
         ),
-        onPressed: () {},
-        elevation: 0.0,
-        highlightElevation: 0.0,
+        decoration: BoxDecoration(
+          color: Theme.of(context).accentColor,
+          shape: BoxShape.circle,
+        ),
       ),
       Padding(
         padding: EdgeInsets.only(right: 5),
       ),
-      FloatingActionButton(
-        backgroundColor: Color(0xffEFF5F5),
-        child: Icon(
-          Icons.chat,
+      Container(
+        child: IconButton(
+          icon: Icon(Icons.chat),
           color: Colors.black,
+          disabledColor: Colors.black,
+          splashColor: Theme.of(context).accentColor,
+          onPressed: () {},
         ),
-        onPressed: () {},
-        elevation: 0.0,
-        highlightElevation: 0.0,
+        decoration: BoxDecoration(
+          color: Theme.of(context).accentColor,
+          shape: BoxShape.circle,
+        ),
+      ),
+       Padding(
+        padding: EdgeInsets.only(right: 10),
       ),
     ];
   }
@@ -131,7 +140,6 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getStoryThumbnail() {
     return Container(
-
       child: Stack(
         children: <Widget>[
           ClipRRect(
@@ -140,21 +148,17 @@ class _HomePageState extends State<HomePage> {
           ),
           //_friendAvatar(),
           Positioned(
-            //child: _friendAvatar(),
-            child: UserAvatar(hasStory:hasStory),
-            // height:40,
-            // width: 40,
-            left: 10,
-            top: 5
-          ),
+              //child: _friendAvatar(),
+              child: UserAvatar(hasStory: hasStory),
+              // height:40,
+              // width: 40,
+              left: 10,
+              top: 5),
           Positioned(
-            child: Text(
-              'Hester \nVentura',
-              style:TextStyle(color: Colors.white)
-            ),
-            top:130,
-            left: 10
-          )
+              child: Text('Hester \nVentura',
+                  style: TextStyle(color: Colors.white)),
+              top: 130,
+              left: 10)
         ],
         fit: StackFit.expand,
       ),
@@ -175,25 +179,23 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           Positioned(
-            child: FloatingActionButton(
-              backgroundColor: Colors.white,
-              child: Icon(Icons.add, color:Colors.blue,size: 30,),
-              onPressed: () {}
-            ),
-            left: 10,
-            top: 5,
-            height:40,
-            width:40
-          ),
+              child: FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
+                  onPressed: () {}),
+              left: 10,
+              top: 5,
+              height: 40,
+              width: 40),
           Positioned(
-            child: Text(
-              'Add to Story',
-              style:TextStyle(color: Colors.white)
-            ),
-            top:150,
-            left: 10
-          )
-
+              child:
+                  Text('Add to Story', style: TextStyle(color: Colors.white)),
+              top: 150,
+              left: 10)
         ],
         fit: StackFit.expand,
       ),
@@ -282,7 +284,7 @@ class _HomePageState extends State<HomePage> {
           Row(
             children: <Widget>[
               Container(
-                child: UserAvatar(hasStory:hasStory),
+                child: UserAvatar(hasStory: hasStory),
                 padding: EdgeInsets.only(right: 10),
               ),
               Column(
@@ -409,11 +411,10 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Expanded(
               child: FlatButton.icon(
-                icon: Icon(Icons.thumb_up),
-                label: Text('Like'),
-                textColor: isLiked == true ? Colors.blue: Colors.grey,
-                onPressed: reactToPost
-              ),
+                  icon: Icon(Icons.thumb_up),
+                  label: Text('Like'),
+                  textColor: isLiked == true ? Colors.blue : Colors.grey,
+                  onPressed: reactToPost),
               flex: 1),
           Expanded(
               child: FlatButton.icon(
@@ -463,4 +464,23 @@ class _HomePageState extends State<HomePage> {
     return _posts;
   }
 
+  Widget _getStories() {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('test'),
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {},
+        ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(color: Colors.yellow),
+        height: 300,
+      ),
+    );
+  }
 }

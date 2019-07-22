@@ -1,8 +1,13 @@
+import 'package:facebook/pages/notifications.dart';
+import 'package:facebook/pages/test.dart';
 import 'package:flutter/material.dart';
 import 'package:facebook/models/global.dart';
+import 'package:path/path.dart';
 
 class UserAvatar extends StatelessWidget {
   bool hasStory;
+
+  //final VoidCallback onColorSelect;
 
   UserAvatar({this.hasStory});
 
@@ -34,10 +39,15 @@ class UserAvatar extends StatelessWidget {
           backgroundColor: Colors.transparent,
           highlightElevation: 0,
           elevation: 0,
-          onPressed: () {},
+          onPressed: (){},
         )
       ],
       alignment: Alignment(0,0),
     );
   }
+
+
+
+
+
 }

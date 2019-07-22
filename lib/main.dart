@@ -1,3 +1,4 @@
+import 'package:facebook/pages/story.dart';
 import 'package:facebook/themes/Theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:facebook/pages/marketplace.dart';
 import 'package:facebook/pages/notifications.dart';
 import 'package:facebook/pages/menu.dart';
 import 'package:flutter/rendering.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   //debugPaintSizeEnabled=true;
