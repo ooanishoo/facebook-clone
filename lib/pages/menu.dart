@@ -1,4 +1,5 @@
 import 'package:facebook/models/global.dart';
+import 'package:facebook/pages/login.dart';
 import 'package:facebook/widgets/menuTitle.dart';
 import 'package:flutter/material.dart';
 import '../widgets/PageTitle.dart';
@@ -35,7 +36,11 @@ class _MenuPageState extends State<MenuPage> {
                   backgroundImage: NetworkImage(userProfileImage),
                 ),
                 subtitle: Text('View your profile'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, new MaterialPageRoute(
+                    builder: (context) => LoginPage()
+                  ));
+                },
               ),
               Divider(),
               ListTile(
