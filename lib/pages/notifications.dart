@@ -1,6 +1,5 @@
 import 'package:facebook/models/global.dart';
 import 'package:facebook/widgets/PageTitle.dart';
-import 'package:facebook/widgets/menuTitle.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatefulWidget {
