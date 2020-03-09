@@ -1,11 +1,11 @@
 # Facebook Clone
-Facebook Clone is a flutter app that runs both on ios and android and showcases the UI of the `Facebook` mobile app. The project includes:
+Facebook Clone is a flutter app that runs both on ios and android and showcases the UI of the `Facebook` mobile app. The project includes following pages:
     
-    - Newsfeed
-    - Listview for friend requests and suggestd friends
-    - Menu View
-    - Story view
-    - Login View
+    - Login page
+    - Newsfeed page
+    - Friend requests and suggestion page
+    - Menu page
+    - Story view page
     
 ## Getting Started
 
