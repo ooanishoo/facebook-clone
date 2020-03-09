@@ -1,3 +1,4 @@
+import 'package:facebook/pages/user_story.dart';
 import 'package:facebook/widgets/userAvatar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +6,12 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:facebook/models/global.dart';
 import 'package:flutter/widgets.dart';
-import 'package:facebook/themes/Theme.dart';
+import 'package:story_view/story_controller.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({this.storyController});
+
+  final StoryController storyController;
 
   _HomePageState createState() => _HomePageState();
 }
@@ -32,6 +35,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   body: Center(
+    //           child: Container(
+    //       child: FloatingActionButton(
+    //         onPressed: () {
+    //           print('test');
+    //           Navigator.push(context, new MaterialPageRoute(
+    //             builder: (context) => UserStory(storyController: widget.storyController)
+    //           ));
+    //         },
+    //       )
+    //     ),
+    //   ),
+    // );
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0),
@@ -74,7 +92,13 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black,
           disabledColor: Colors.black,
           splashColor: Theme.of(context).accentColor,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) =>
+                        UserStory(storyController: widget.storyController)));
+          },
         ),
         decoration: BoxDecoration(
           color: Theme.of(context).accentColor,
@@ -90,14 +114,20 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black,
           disabledColor: Colors.black,
           splashColor: Theme.of(context).accentColor,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) =>
+                        UserStory(storyController: widget.storyController)));
+          },
         ),
         decoration: BoxDecoration(
           color: Theme.of(context).accentColor,
           shape: BoxShape.circle,
         ),
       ),
-       Padding(
+      Padding(
         padding: EdgeInsets.only(right: 10),
       ),
     ];
@@ -139,34 +169,48 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _getStoryThumbnail() {
-    return Container(
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
-            child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+    return InkWell(
+      child: Container(
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              new MaterialPageRoute(
+                builder: (context) =>
+                UserStory(storyController: widget.storyController)
+              )
+            );
+          },
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                child: ClipRRect(
+                  child: Image.network(userStoryCoverImage, fit: BoxFit.fill),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+              ),
+              // Positioned(
+              //     //child: _friendAvatar(),
+              //     child: UserAvatar(hasStory: hasStory),
+              //     // height:40,
+              //     // width: 40,
+              //     left: 10,
+              //     top: 5),
+              // Positioned(
+              //     child: Text('Hester \nVentura',
+              //         style: TextStyle(color: Colors.white)),
+              //     top: 130,
+              //     left: 10)
+            ],
+            fit: StackFit.expand,
           ),
-          //_friendAvatar(),
-          Positioned(
-              //child: _friendAvatar(),
-              child: UserAvatar(hasStory: hasStory),
-              // height:40,
-              // width: 40,
-              left: 10,
-              top: 5),
-          Positioned(
-              child: Text('Hester \nVentura',
-                  style: TextStyle(color: Colors.white)),
-              top: 130,
-              left: 10)
-        ],
-        fit: StackFit.expand,
+        ),
+        margin: EdgeInsets.only(right: 10),
+        width: 120,
+        height: 220,
+        decoration: BoxDecoration(color: Colors.white),
+        padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
       ),
-      margin: EdgeInsets.only(right: 10),
-      width: 120,
-      height: 220,
-      decoration: BoxDecoration(color: Colors.white),
-      padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
     );
   }
 
@@ -180,13 +224,23 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
               child: FloatingActionButton(
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.blue,
-                    size: 30,
-                  ),
-                  onPressed: () {}),
+                heroTag: "Addasdfdsfdsf",
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.blue,
+                  size: 30,
+                ),
+                //onPressed: () {}
+                onPressed: () {
+                  print('pressed');
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => UserStory(
+                              storyController: widget.storyController)));
+                },
+              ),
               left: 10,
               top: 5,
               height: 40,
@@ -243,21 +297,40 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.video_call, color: Colors.red),
                   label: Text('Live'),
                   textColor: Colors.grey,
-                  onPressed: () {}),
+                  onPressed: () {
+                    print('test');
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => UserStory(
+                                storyController: widget.storyController)));
+                  }),
               flex: 1),
           Expanded(
               child: FlatButton.icon(
                   icon: Icon(Icons.photo, color: Colors.green),
                   label: Text('Photo'),
                   textColor: Colors.grey,
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => UserStory(
+                                storyController: widget.storyController)));
+                  }),
               flex: 1),
           Expanded(
             child: FlatButton.icon(
                 icon: Icon(Icons.location_on, color: Colors.pink),
                 label: Text('Check In'),
                 textColor: Colors.grey,
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => UserStory(
+                              storyController: widget.storyController)));
+                }),
             flex: 1,
           ),
         ],
@@ -421,7 +494,14 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.comment),
                   label: Text('Comment'),
                   textColor: Colors.grey,
-                  onPressed: () {}),
+                  onPressed: () {
+                    print('test');
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => UserStory(
+                                storyController: widget.storyController)));
+                  }),
               flex: 1),
           Expanded(
               child: FlatButton.icon(

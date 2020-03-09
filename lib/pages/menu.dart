@@ -1,25 +1,30 @@
 import 'package:facebook/models/global.dart';
-import 'package:facebook/pages/login.dart';
+import 'package:facebook/pages/user_story.dart';
 import 'package:facebook/widgets/menuTitle.dart';
 import 'package:flutter/material.dart';
+import 'package:story_view/story_controller.dart';
 import '../widgets/PageTitle.dart';
 
 class MenuPage extends StatefulWidget {
-  MenuPage({Key key}) : super(key: key);
+  MenuPage({this.storyController});
 
+  final StoryController storyController;
+
+  @override
   _MenuPageState createState() => _MenuPageState();
 }
 
 class _MenuPageState extends State<MenuPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0),
         child: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        preferredSize: Size.fromHeight(0),
       ),
       body: CustomScrollView(
         slivers: <Widget>[
@@ -37,9 +42,6 @@ class _MenuPageState extends State<MenuPage> {
                 ),
                 subtitle: Text('View your profile'),
                 onTap: () {
-                  Navigator.push(context, new MaterialPageRoute(
-                    builder: (context) => LoginPage()
-                  ));
                 },
               ),
               Divider(),
@@ -50,7 +52,11 @@ class _MenuPageState extends State<MenuPage> {
                   size: 35,
                   color: Colors.blueGrey[300],
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, new MaterialPageRoute(
+                    builder: (context) => UserStory(storyController: widget.storyController)
+                  ));
+                },
               ),
               Divider(),
               ListTile(

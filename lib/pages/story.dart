@@ -36,61 +36,63 @@ class Story extends StatelessWidget {
   }
 
   Widget _storyHeader() {
-    return Container(
-      child: Row(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              CircleAvatar(
-                backgroundImage: NetworkImage(userProfileImage),
-              ),
-              Padding(
-                padding: EdgeInsets.all(5),
-              ),
-              Column(
-                children: <Widget>[
-                  Text(
-                    'Anna Dangol',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    '16 hrs',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.more_horiz),
-                color: Colors.white,
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(Icons.cancel),
-                color: Colors.white,
-                onPressed: () {},
-              ),
-            ],
-            mainAxisAlignment: MainAxisAlignment.end,
-          )
-        ],
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Expanded(
+      child: Container(
+        child: Row(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(userProfileImage),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(5),
+                ),
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'Anna Dangol',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      '16 hrs',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.more_horiz),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Icon(Icons.cancel),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+              ],
+              mainAxisAlignment: MainAxisAlignment.end,
+            )
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        ),
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        decoration: BoxDecoration(color: Colors.transparent),
+        height: 60,
+        margin: EdgeInsets.only(top: 30),
       ),
-      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      decoration: BoxDecoration(color: Colors.transparent),
-      height: 60,
-      margin: EdgeInsets.only(top: 30),
     );
   }
 
